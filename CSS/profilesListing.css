@@ -1,0 +1,159 @@
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.popup .close:hover {
+    color: #06D85F;
+}
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+.bEd {
+    border: none;
+    background: #e7e7e7;
+    color: #000000 !important;
+    font-weight: 100;
+    width: auto;
+    padding: 2px;
+    margin-left: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+}
+
+.bEd:hover {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: #0c0c0c;
+    -webkit-box-shadow: 0px 5px 40px -10px rgb(0, 0, 0);
+    -moz-box-shadow: 0px 5px 40px -10px rgb(0, 0, 0);
+    transition: all 0.3s ease 0s;
+}
+
+
+.myform {
+  --background: #f0f0f0;
+  --text: #414856;
+  --radio: #7C96B2;
+  --radio-checked: #4F29F0;
+  --radio-size: 20px;
+ margin: 20px;
+  --border-radius: 10px;
+  background: var(--background);
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  color: var(--text);
+padding:10px;
+  box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+  
+  
+  grid-template-columns: auto var(--radio-size);
+  align-items: center;
+}
+.myform label {
+  cursor: pointer;
+}
+.myform input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  height: var(--radio-size);
+  width: var(--radio-size);
+  outline: none;
+  margin: 0;
+  cursor: pointer;
+  border: 2px solid var(--radio);
+  background: transparent;
+  border-radius: 50%;
+  display: grid;
+  justify-self: end;
+  justify-items: center;
+  align-items: center;
+  overflow: hidden;
+  transition: border 0.5s ease;
+}
+.myform input[type=radio]::before, form input[type=radio]::after {
+  content: "";
+  display: flex;
+  justify-self: center;
+  border-radius: 50%;
+}
+.myform input[type=radio]::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--background);
+  z-index: 1;
+  opacity: var(--opacity, 1);
+}
+.myform input[type=radio]::after {
+  position: relative;
+  width: calc(100% /2);
+  height: calc(100% /2);
+  background: var(--radio-checked);
+  top: var(--y, 100%);
+  transition: top 0.5s cubic-bezier(0.48, 1.97, 0.5, 0.63);
+}
+.myform input[type=radio]:checked {
+  --radio: var(--radio-checked);
+}
+.myform input[type=radio]:checked::after {
+  --y: 0%;
+  -webkit-animation: stretch-animate 0.3s ease-out 0.17s;
+          animation: stretch-animate 0.3s ease-out 0.17s;
+}
+.myform input[type=radio]:checked::before {
+  --opacity: 0;
+}
+.myform input[type=radio]:checked ~ input[type=radio]::after {
+  --y: -100%;
+}
+.myform input[type=radio]:not(:checked)::before {
+  --opacity: 1;
+  transition: opacity 0s linear 0.5s;
+}
