@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2022 at 12:02 AM
+-- Generation Time: Jan 16, 2022 at 12:09 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -274,8 +274,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`type`, `userid`, `email`, `password`, `username`, `gender`, `image`, `status`, `unique_id`) VALUES
 ('Adminstrator', 115, 'youssef@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'youssef', 'male', 'uploads/images.png', 'Offline now', 234920460),
-('Auditor', 116, 'speed@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'speed', 'male', 'uploads/images.png', 'Active now', 1341090892),
-('Tutor', 117, 'salah@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'salah', 'male', 'uploads/126126592_3020492128050804_1703443695247337615_n.jpg', 'Offline now', 122940276),
+('Auditor', 116, 'speed@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'speed', 'male', 'uploads/images.png', 'Offline now', 1341090892),
+('Tutor', 117, 'salah@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'salah', 'male', 'uploads/Yonus edited.jpg', 'Offline now', 122940276),
 ('Student', 118, 'gika@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'gika', 'male', 'uploads/images.png', 'Offline now', 1366213838),
 ('Student', 119, 'student@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'student', 'male', 'uploads/images.png', 'Offline now', 482502929),
 ('Adminstrator', 120, 'YonosTarek@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Yonos Tarek', 'male', 'uploads/IMG_0939-01-01.jpeg', 'Offline now', 1123279351),
@@ -285,7 +285,7 @@ INSERT INTO `users` (`type`, `userid`, `email`, `password`, `username`, `gender`
 ('Auditor', 124, 'ChinaManga@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'ChinaManga', 'male', 'uploads/Image2.jpg', 'Offline now', 1154051781),
 ('Tutor', 125, 'mohamedsalahomran44@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Mohamed Salah', 'male', 'uploads/res.jpg', 'Offline now', 723827539),
 ('Tutor', 126, 'Omarwael@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Omar wael', 'male', 'uploads/217798059_4227348867359117_6908792753169980018_n (1).jpg', 'Offline now', 595617583),
-('Tutor', 127, 'Mohamed@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Mohamed', 'male', 'uploads/jhg.jpg', 'Active now', 834910699),
+('Tutor', 127, 'Mohamed@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Mohamed', 'male', 'uploads/jhg.jpg', 'Offline now', 834910699),
 ('Tutor', 128, 'Mariam@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Mariam', 'female', 'uploads/111.jpg', 'Offline now', 1134239792),
 ('Tutor', 130, 'YoussefAlaa@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'YoussefAlaa', 'male', 'uploads/Image5.jpg', 'Offline now', 356532015),
 ('Tutor', 131, 'Yonosbahrawy@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Yonos bahrawy', 'male', 'uploads/5.jpg', 'Offline now', 1395589200),
