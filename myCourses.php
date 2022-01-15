@@ -20,11 +20,11 @@
 
 </head>
 <body>
-   <style>
-  body{
-   /*background: rgb(2,0,36);
-background: linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,111,121,1) 100%, rgba(0,212,255,1) 100%);*/
-background-color: #141e30;
+  <style>
+
+    body{
+    background-color: #f0f0f0;
+
     }
     </style>
 <body>

@@ -23,7 +23,7 @@ button {
   cursor: pointer;
   width: 50%;
   border-radius: 10%;
-  border: 1px ;
+  border: 0px ;
 }
 
 button:hover {
@@ -31,7 +31,7 @@ button:hover {
 }
 .form-control:focus {
     box-shadow: none;
-    border-color: #BA68C8
+    border-color: grey
 }
 
 .profile-button {
@@ -41,21 +41,21 @@ button:hover {
 }
 
 .profile-button:hover {
-    background: #682773
+    background: grey
 }
 
 .profile-button:focus {
-    background: #682773;
+    background: grey;
     box-shadow: none
 }
 
 .profile-button:active {
-    background: #682773;
+    background: grey;
     box-shadow: none
 }
 
 .back:hover {
-    color: #682773;
+    color: grey;
     cursor: pointer
 }
 
@@ -64,15 +64,15 @@ button:hover {
 }
 
 .add-experience:hover {
-    background: #BA68C8;
+    background: grey;
     color: #fff;
     cursor: pointer;
-    border: solid 1px #BA68C8
+    border: solid 1px grey
 }
-.All{
+/*.All{
     background: rgba(0,0,0,.5);
     color: #fff;
-}
+}*/
 
     </style>
 
@@ -157,10 +157,10 @@ if(!empty($_FILES['fileToUpload']['name'])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script></head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
 </head>
-<body style="background-color:#141e30;">
+<body style="background-color:#f0f0f0;">
 <div class="All">
 <form name="f1" action="" method="post" enctype="multipart/form-data">
-<div class="container rounded mt-5 mb-5">
+<div class="container rounded mt-5 mb-5" style="background-color: #FDDBAF;">
  <!-- dont take a copy from the img name -->
     <div class="row">
         <div class="col-md-3 border-right">
@@ -184,7 +184,7 @@ if(!empty($_FILES['fileToUpload']['name'])){
                     <br><?php echo $_SESSION["gender"] ?></div>
 
                 </div>
-                <div class="mt-5 text-center"><button style="background-color: #0464CA ;" class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+                <div class="mt-5 text-center"><button style="background-color: grey ;" class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
             </div>
             <!-- background="background.jpg" -->
         </div>
@@ -206,7 +206,7 @@ if(!empty($_FILES['fileToUpload']['name'])){
 </div>
 <div class="All">
 <form action="" method="post" enctype="multipart/form-data">
-<div class="container rounded mt-5 mb-5">
+<div class="container rounded mt-5 mb-5" style="background-color: #FDDBAF;">
         <div class="col-md-5 border-right ">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -218,7 +218,7 @@ if(!empty($_FILES['fileToUpload']['name'])){
                   <div class="col-md-12"><label class="labels">New Password</label><input type="password" name = "Epassword2" class="form-control" required></div>
 
                 </div>
-                <div class="mt-5 text-center"><button style="background-color: #0464CA ;" class="btn btn-primary profile-button" type="submit">Update Password</button></div>
+                <div class="mt-5 text-center"><button style="background-color: grey ;" class="btn btn-primary profile-button" type="submit">Update Password</button></div>
             </div>
             
         </div>

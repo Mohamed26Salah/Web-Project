@@ -2,6 +2,9 @@
             <?php 
              
 
+session_start();
+
+  
 
 require_once "DBConnection.php";
 
@@ -41,10 +44,22 @@ if(!empty($_FILES['fileToUpload']['name'])){
       $target_file = $target_dir.basename($_FILES['fileToUpload']['name']);
       $tmp_name = $_FILES['fileToUpload']['tmp_name'];
       $name = basename($_FILES['fileToUpload']['name']);
-     move_uploaded_file($tmp_name, "E:/xamp/htdocs/WEBALL/uploads/$name");
+     move_uploaded_file($tmp_name, "../uploads/$name");
         $approve=$_POST['approved'];
         $CourseName=$_POST['courseName'];
-        $InsName=$_POST['instructorName'];
+
+        $InsName=$_SESSION['username'];
+ 
+          if($_SESSION['Type']=="Adminstrator"){
+            $InsName=$_POST['instructorName'];
+         }
+         else if($_SESSION['Type']=="Tutor"){
+           $InsName=$_SESSION['username'];
+         }
+                                      
+
+
+
         $CoursePrice=$_POST['coursePrice'];
         $Description=$_POST['description'];
         $CourseName = filter_var($CourseName, FILTER_SANITIZE_STRING);

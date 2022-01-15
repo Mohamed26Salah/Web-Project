@@ -16,26 +16,7 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="CSS/button.css">
-<!-- <div class="login-box">
-  <h2>Login</h2>
-  <form>
-    <div class="user-box">
-      <input type="text" name="" required="">
-      <label>Username</label>
-    </div>
-    <div class="user-box">
-      <input type="password" name="" required="">
-      <label>Password</label>
-    </div>
-    <a href="#">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      Submit
-    </a>
-  </form>
-</div> -->
+
 <a href="courses.php" style="display: flex;  position: relative; justify-content: center; text-decoration: none;"><button class="button-17" role="button" >Back to Courses</button></a>
 <?php
  require_once "Php/DBConnection.php";
@@ -64,8 +45,19 @@ if(isset($_GET['AE'])=="Add"){
                                       <label>Course Name</label>
                                        </div>
                                     <div class="user-box">
-                                    <input type="text" name = "instructorName" id="instructorName" required onkeyup="letters(this)"><br><br>
+                                  <?php
+                                        if($_SESSION['Type']=="Adminstrator"){
+                                          ?>
+                                            <input type="text" name = "instructorName" id="instructorName" required onkeyup="letters(this)"><br><br>
                                        <label>Instructor Name</label>
+                                            <?php
+                                       }
+                                       else if($_SESSION['Type']=="Tutor"){
+                                        ?>
+                                            <input type="text" name = "instructorName" id="instructorName" value="<?php echo $_SESSION['username'];?>" disabled="disabled"><br><br>
+                                            <?php
+                                       }
+                                       ?>
                                     </div>
                                     <div class="user-box">
                                       <input type="text" name = "coursePrice" id="coursePrice" required onkeyup="numbers(this)" ><br><br>

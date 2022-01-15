@@ -34,7 +34,7 @@ if(!empty($_FILES['fileToUpload']['name'])){
       $target_file = $target_dir.basename($_FILES['fileToUpload']['name']);
       $tmp_name = $_FILES['fileToUpload']['tmp_name'];
       $name = basename($_FILES['fileToUpload']['name']);
-      move_uploaded_file($tmp_name, "E:/xamp/htdocs/WEBALL/uploads/$name");
+      move_uploaded_file($tmp_name, "../uploads/$name");
             $courseId=$_GET['id']; 
             $CourseName=$_POST['courseName'];
             $InsName=$_POST['instructorName'];

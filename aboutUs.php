@@ -4,9 +4,10 @@
 	<?php session_start();?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Universtiy Website</title>
-	<link rel="stylesheet" href="CSS/style2.css">
 	<link rel="stylesheet" href="CSS/style3.css">
 	<link rel="stylesheet" href="CSS/ay7aga.css">
+  <link rel="stylesheet" href="CSS/search.css">
+  <link rel="stylesheet" href="CSS/button.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
@@ -16,27 +17,95 @@
 
 </head>
 <body>
-  <section class="header">
-  
-  	<nav>
-  		<a href="index.php"><img src="images2/logo.png"></a>
-  		
-        <div class="nav-links">
+  <?php
+  if (empty($_SESSION['username'])) {
+    ?>
+   <nav>
+    <div class="topnav">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="aboutUs.php">About</a></li>
+                <li><a href="courses.php">Courses</a></li>
+                
+                <li><a href="LR2.php"><i class="fa fa-user-circle"> Login</i></a></li> 
+                 
+            </ul>
+</div>
 
-        	<ul>
-        		<li><a href="index.php">Home</a></li>
-        		<li><a href="aboutUs.php">About</a></li>
-        		<li><a href="courses.php">COURSES</a></li>
-        		
-        		<!-- <li><a href="myCourses.php">My Courses</a></li> -->
-        		
-        		<li><a href="LR2.php"><i class="fa fa-user-circle"> Login</i></a></li>
-        	</ul>
-        	
-        </div>
-  	</nav>
+</nav>
 
-</section>
+
+<?php
+}
+else{
+    ?>
+   
+     <nav>
+    <div class="topnav">
+              <ul>
+                  <li>
+                
+               
+                <li><a href="index.php">Home</a></li>
+                <li><a href="aboutUs.php">About</a></li>
+                <li><a href="courses.php">Courses</a></li>
+                <?php
+                if ($_SESSION['Type']=="Tutor") { ?>
+                    <li><a href="tutorCourses.php">TutorCourses</a></li>
+                <?php
+                }
+                ?>
+                
+                <li><a href="myCourses.php">My Courses</a></li>
+              
+                 <?php
+                       
+                        if($_SESSION['Type']=="Adminstrator"){
+                             ?>
+                            <li><a href="adminpanel.php">ADMINPANEL</a></li>
+                          
+                        
+                     <?php }
+                        if($_SESSION['Type']=="Adminstrator"){
+                            ?>
+                             <li><a href="orders.php">Orders</a></li>
+                            <?php
+                        }
+
+
+                        if($_SESSION['Type']=="Auditor"){
+                            ?>
+                           
+                            <?php
+                        }
+
+                        ?>
+                        <?php
+                         if($_SESSION['Type']=="Student"){
+                        ?>
+                            
+                            
+                            
+                     <?php }
+                        
+
+                        ?>
+                <li><a href="profile.php"><i class="fa fa-user-circle"><?php echo $_SESSION['username'];?></i></a></li>
+                <li><div class="cart_div">
+               <button class="button-17" role="button" ><a href="cart.php"><img src="cart-icon.png" /></a></button>
+                </div></li>
+                <li><a href="php/signOut.php">signOut</a></li>
+                 
+            </ul>
+</div>
+
+</nav>
+<?php 
+}
+?>
+   
+   
+
   	<div class="about-section">
   <h1>About Us Page</h1>
   <p>Some text about who we are and what we do.</p>

@@ -13,8 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="CSS/button.css">
-
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -24,7 +23,8 @@
 <style>
 
     body{
-    background-color: #141e30;
+    background-color: #f0f0f0;
+
     }
     </style>
 <body>
@@ -103,7 +103,7 @@ else{
                 ?>
                 
                 <li><a href="myCourses.php">My Courses</a></li>
-                <li><a href="">CONTACT</a></li>
+              
                  <?php
                        
                         if($_SESSION['Type']=="Adminstrator"){
@@ -136,10 +136,9 @@ else{
                         
 
                         ?>
-
                 <li><a href="profile.php"><i class="fa fa-user-circle"><?php echo $_SESSION['username'];?></i></a></li>
                 <li><div class="cart_div">
-                <a href="cart.php"><img src="cart-icon.png" /></a>
+               <button class="button-17" role="button" ><a href="cart.php"><img src="cart-icon.png" /></a></button>
                 </div></li>
                 <li><a href="php/signOut.php">signOut</a></li>
                  
@@ -231,11 +230,15 @@ else{
                  }
              } 
 
-                        ?>
+                
 
-                  <?php echo "(".$row['enrolledSid'].")"; ?><br>
-
-                  <!-- <?php echo $row['description'];?><br> -->
+                if($row['enrolledSid']==""){
+                   echo "No students in this Course yet!<br>"; 
+                } else{
+                   echo "(".$row['enrolledSid'].")<br>"; 
+                }
+                ?>
+                 
 
                  <span class="price"><?php echo "$".$row['coursePrice']; ?></span><br>
 
@@ -473,11 +476,13 @@ $conn = new mysqli("localhost" , "root" , "" , "webdatabase");
                  }
              } 
 
-                        ?>
-
-                  <?php echo "(".$row['enrolledSid'].")"; ?><br>
-
-                  <!-- <?php echo $row['description'];?><br> -->
+     
+                if($row['enrolledSid']==""){
+                   echo "No students in this Course yet!<br>"; 
+                } else{
+                   echo "(".$row['enrolledSid'].")<br>"; 
+                }
+                ?>
 
                  <span class="price"><?php echo "$".$row['coursePrice']; ?></span><br>
 
@@ -635,46 +640,20 @@ $conn = new mysqli("localhost" , "root" , "" , "webdatabase");
                 
 <?php
 
- }
+  }
 
 
-            }
-
-
-            }
-
-            ?>
-             <!-- add course -->
-              <div class="Course-col">
-              <?php
-                        if (!empty($_SESSION['username'])) {
-                        if($_SESSION['Type']=="Adminstrator" ||$_SESSION['Type']=="Tutor"){
-                             ?>
-                            
-                         <a href=AddEditDelete.php?AE=Add>
-                    
-                      <img src="uploads/add.png" alt="add" height="400px" width="400px">
-                     </a>
-                      <br>
-                     <?php 
-                 }
-                     } 
-
-                        ?>
-      
-       
-
-
-                 <?php  
-           
-       
+  }
 
 
     }
+
+
+  }
         
-       }
+}
         ?>
-            </div>
+           
        
   
 <!-- </div> -->

@@ -49,7 +49,7 @@ if(isset($_POST["add_to_cart"]))
             {
                 echo "Joex";
                 echo "it is already in the cart";
-                header("location:/WEBALL/courses.php?failed=1");
+                header("location:./courses.php?failed=1");
                 //fe moshkela hna //ask samira
             }
         }
@@ -70,7 +70,7 @@ if(isset($_POST["add_to_cart"]))
     
     $item_data = json_encode($cart_data);
     setcookie('shopping_cart', $item_data, time() + (86400 * 30));
-    header("location:/WEBALL/courses.php?success=1");
+    header("location:./courses.php?success=1");
  }
 
 
@@ -89,14 +89,14 @@ if(isset($_GET["action"]))
                 unset($cart_data[$keys]);
                 $item_data = json_encode($cart_data);
                 setcookie("shopping_cart", $item_data, time() + (86400 * 30));
-                header("location:/WEBALL/cart.php?remove=1");
+                header("location:./cart.php?remove=1");
             }
         }
     }
     if($_GET["action"] == "clear")
     {
         setcookie("shopping_cart", "", time() - 3600);
-        header("location:/WEBALL/cart.php?clearall=1");
+        header("location:./cart.php?clearall=1");
     }
 }
 
@@ -170,7 +170,7 @@ if(isset($_GET["failed"]))
                 <tr>
                     <td><?php echo $values["item_name"]; ?></td>
                     <td colspan="1">$ <?php echo $values["item_price"]; ?></td>
-                    <td><a href="/WEBALL/cart.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
+                    <td><a href="./cart.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
                 </tr>
             <?php   
                     $total = $total + $values["item_price"];
@@ -197,17 +197,17 @@ if(isset($_GET["failed"]))
             ?>
             </table>
            <div align="left">
-  <a href="/WEBALL/cart.php?action=clear"><b>Clear Cart</b></a>
+  <a href="./cart.php?action=clear"><b>Clear Cart</b></a>
 </div>
 <div align="right">
-    <a href="/WEBALL/courses.php"><b>Back to Course</b></a>
+    <a href="./courses.php"><b>Back to Course</b></a>
 </div>
      </div>
    <?php
    $date=date("Y-m-d H:i:s");
    if(isset($_POST['BuyNow'])){
     if(!empty($_SESSION['username'])){
-        header("location:/WEBALL/cart.php?action=clear");
+        header("location:./cart.php?action=clear");
     
         // connecting dp by speed
         $servername = "localhost";
