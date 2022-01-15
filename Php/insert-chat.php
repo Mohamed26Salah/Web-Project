@@ -64,14 +64,14 @@
             }
             else {
                 if(empty($_FILES['uploadFile']['name'])) {
-                    $sql = mysqli_query($conn, "INSERT INTO messages (incoming_msg_id, outgoing_msg_id, msg )
-                    VALUES ({$incoming_id}, {$outgoing_id}, '{$messageSanitize}')") or die();
+                    $sql = mysqli_query($conn, "INSERT INTO messages (incoming_msg_id, outgoing_msg_id, msg , `datetime` )
+                    VALUES ({$incoming_id}, {$outgoing_id}, '{$messageSanitize}' ,  '".date("Y-m-d H:i:s")."' )") or die();
                     echo "aywa";
                     
                 }
                 else {
-                    $sql = mysqli_query($conn, "INSERT INTO messages (incoming_msg_id, outgoing_msg_id, msg, `image?`)
-                    VALUES ({$incoming_id}, {$outgoing_id}, '{$target_file}' , 1)") or die();
+                    $sql = mysqli_query($conn, "INSERT INTO messages (incoming_msg_id, outgoing_msg_id, msg, `image?` , `datetime`)
+                    VALUES ({$incoming_id}, {$outgoing_id}, '{$target_file}' , 1 , '".date("Y-m-d H:i:s")."' )") or die();
                     echo "else";
                 }
               
