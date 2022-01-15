@@ -279,7 +279,7 @@ function back_icon2() {
       if(xhr2.readyState === XMLHttpRequest.DONE){
           if(xhr2.status === 200){
             let data = xhr2.response;
-
+             console.log(data);
             auditorState = data;
             
           }

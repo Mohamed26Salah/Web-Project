@@ -3,7 +3,7 @@
 session_start();
 
 
-include "Php/DBConnection.php";
+include "DBConnection.php";
 
 $sql = "SELECT * FROM users WHERE `userid` =". $_SESSION['userid'];
 
