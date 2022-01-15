@@ -103,7 +103,7 @@ else{
     <div class="text-box">
     	<h1>Eduford: Online Courses - Learn Anything</h1>
     	<p>Our website is now one of the best websites in the world. You just need to create account <br> Then enjoy.</p>
-    	<a href="aboutUs.html" class="hero-btn">Visit Us To Know More</a>
+    	<a href="aboutUs.php" class="hero-btn">Visit Us To Know More</a>
     </div>
 
 </section>
@@ -212,7 +212,7 @@ else{
 <!----Call to Action----->
 <section class="cta">
 	<h1>Enroll for our various online coursers<br>anywhere from the world</h1>
-	<a href="aboutUs.html" class="hero-btn">CONTACTUS</a>
+	<a href="aboutUs.php" class="hero-btn">CONTACTUS</a>
 </section>
 
 <!----FOOTER----->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2022 at 07:57 PM
+-- Generation Time: Jan 15, 2022 at 08:37 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -46,9 +46,9 @@ INSERT INTO `course` (`courseId`, `courseName`, `coursePrice`, `enrolledSid`, `d
 (1, 'Swift', '14.55', '640003', 'The course aims to enable students to analyze problems problemsolving skills basic math to get quality training and exercise by learning the basic concepts and theory of limits theory basic concepts of functions of one variable calculus multifunction calc', 'Mohamed Salah', 'uploads/114.jpg', 1),
 (2, 'Web Development', '20.00', '12501', 'This course is designed to help students get to know the basic knowledge of Chinese calligraphy arts and teach them how to appreciate the arts', 'Mohamed', 'uploads/102.jpg', 1),
 (3, 'Android', '16.55', '10001', 'The course is designed to help students master the basic knowledege of C langugae and make simple application programming by using C Language and combiningg structured programming thoughts master the basic methods and skills of C programming design in ord', 'Mariam', 'uploads/android.jpg', 1),
-(4, 'Machine Learning', '18.14', '56458', 'The course is designed to help students master the basic knowledege of C langugae and make simple application programming by using C Language and combiningg structured programming thoughts master the basic methods and skills of C programming design in ord', 'Youssef ALaa', 'uploads/105.jpg', 1),
+(4, 'Machine Learning', '18.14', '56458', 'The course is designed to help students master the basic knowledege of C langugae and make simple application programming by using C Language and combiningg structured programming thoughts master the basic methods and skills of C programming design in ord', 'YoussefAlaa', 'uploads/105.jpg', 1),
 (5, 'Deep Learning', '56.00', '65466', 'This course is to help students learn the rudiments of vector algebra analytic geometry of space basic content Training students to use study geometric problems in the practical application of the analytical method and the ability for subsequent courses i', 'Omar wael', 'uploads/108.jpg', 1),
-(6, 'Game Development', '20.10', '12501', 'The course is designed to help students master the basic knowledege of C langugae and make simple application programming by using C Language and combiningg structured programming thoughts, master the basic methods and skills of C programming design in or', 'Yonos Tarek', 'uploads/101.jpg', 1),
+(6, 'Game Development', '20.10', '12501', 'The course is designed to help students master the basic knowledege of C langugae and make simple application programming by using C Language and combiningg structured programming thoughts, master the basic methods and skills of C programming design in or', 'Yonos bahrawy', 'uploads/101.jpg', 1),
 (8, 'Computer Graphics', '125', '55556', 'This course is designed to educate students with basic knowledege of computer science and help them master operations of Win98XPWord2000Excel2000etc and get to know basic knowldege about Internet and how to search information using electronic mails get to', 'Youssef Hussien', 'uploads/113.jpg', 1),
 (9, 'Mobile Development', '45', '750', 'With life values ethics education as the main line the courses is to guide students to strengthen their ideological and moral cultivation by integrating use of relevant knowledge Moral Education and Law Basis', 'Yasser', 'uploads/100.png', 1);
 
@@ -154,6 +154,13 @@ CREATE TABLE `surveys` (
   `instructorRate` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `surveys`
+--
+
+INSERT INTO `surveys` (`courseid`, `userid`, `name`, `suggestion`, `instructorRate`) VALUES
+(4, 122, 'YasserMohamed', '', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -183,13 +190,13 @@ INSERT INTO `usercourse` (`userid`, `username`, `courseName`, `courseId`, `Price
 (6, 'Joex', 'Computer Graphics', 8, '555', '2021-12-29 18:25:33', 0),
 (8, 'Bassem', 'Web Development', 2, '20', '2021-12-29 18:25:33', 0),
 (8, 'Bassem', 'Android', 3, '16.55', '2021-12-29 18:25:33', 0),
-(8, 'Bassem', 'Machine Learning', 4, '18.14', '2022-01-08 15:10:54', 1),
+(8, 'Bassem', 'Machine Learning', 4, '18.14', '2022-01-08 15:10:54', 0),
 (8, 'Bassem', 'Computer Graphics', 8, '555', '2021-12-29 18:25:33', 0),
 (8, 'Bassem', 'Simpana', 9, '1.00', '2022-01-08 15:10:54', 0),
 (21, 'Gika', 'Swift', 1, '14.55', '2021-12-29 18:25:33', 0),
 (21, 'Gika', 'Web Development', 2, '20', '2021-12-29 18:25:33', 0),
 (21, 'Gika', 'Android', 3, '16.55', '2021-12-29 18:25:33', 0),
-(21, 'Gika', 'Machine Learning', 4, '18.14', '2021-12-29 18:25:33', 1),
+(21, 'Gika', 'Machine Learning', 4, '18.14', '2021-12-29 18:25:33', 0),
 (21, 'Gika', 'Computer Graphics', 8, '555', '2021-12-29 18:25:33', 0),
 (21, 'Gika', 'Simpana', 9, '1', '2021-12-29 18:25:33', 0),
 (27, 'Speedoo', 'Web Development', 2, '20', '2021-12-29 18:25:33', 0),
@@ -199,11 +206,11 @@ INSERT INTO `usercourse` (`userid`, `username`, `courseName`, `courseId`, `Price
 (28, 'Nezoko', 'Swift', 1, '14.55', '2021-12-29 18:25:33', 0),
 (28, 'Nezoko', 'Web Development', 2, '20', '2021-12-29 18:25:33', 0),
 (28, 'Nezoko', 'Android', 3, '16.55', '2021-12-29 18:25:33', 0),
-(28, 'Nezoko', 'Machine Learning', 4, '18.14', '2021-12-29 18:25:33', 1),
+(28, 'Nezoko', 'Machine Learning', 4, '18.14', '2021-12-29 18:25:33', 0),
 (28, 'Nezoko', 'Computer Graphics', 8, '555', '2021-12-29 18:25:33', 0),
 (28, 'Nezoko', 'Simpana', 9, '1', '2021-12-29 18:25:33', 0),
 (36, 'Lara', 'Swift', 1, '14.55', '2021-12-29 18:25:33', 0),
-(36, 'Lara', 'Machine Learning', 4, '18.14', '2021-12-29 18:25:33', 1),
+(36, 'Lara', 'Machine Learning', 4, '18.14', '2021-12-29 18:25:33', 0),
 (36, 'Lara', 'Deep Learning', 5, '56', '2021-12-29 18:25:33', 0),
 (115, 'Ahmed Sameh', 'Web Development', 2, '20', '2021-12-29 18:25:33', 0),
 (115, 'Ahmed Sameh', 'Android', 3, '16.55', '2021-12-29 18:25:33', 0),
@@ -211,7 +218,6 @@ INSERT INTO `usercourse` (`userid`, `username`, `courseName`, `courseId`, `Price
 (118, 'gika', 'Algoritm and Data Structure', 6, '20.10', '2022-01-12 21:47:48', 0),
 (118, 'gika', 'math', 13, '1', '2022-01-12 23:15:00', 0),
 (118, 'gika', 'math', 14, '1', '2022-01-12 23:16:08', 0),
-(120, 'Yonos Tarek', 'Web Development', 2, '20.00', '2022-01-15 19:16:10', 0),
 (122, 'YasserMohamed', 'Swift', 1, '14.55', '2022-01-13 23:22:35', 0),
 (122, 'YasserMohamed', 'Web Development', 2, '20.00', '2022-01-13 23:22:35', 0),
 (122, 'YasserMohamed', 'Android', 3, '16.55', '2022-01-15 18:11:44', 0),
@@ -248,18 +254,24 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`type`, `userid`, `email`, `password`, `username`, `gender`, `image`, `status`, `unique_id`) VALUES
-('Adminstrator', 115, 'youssef@gmail.com', '717d00efcdb16bf8ffbe530c4bab0f2e', 'youssef', 'male', 'uploads/images.png', 'Offline now', 234920460),
-('Auditor', 116, 'speed@gmail.com', 'b04a44aead88cfdbd44325ec2cf7a33a', 'speed', 'male', 'uploads/images.png', 'Offline now', 1341090892),
-('Tutor', 117, 'salah@gmail.com', 'c51b54c550c4fe6f507f65bc23cdf64a', 'salah', 'male', 'uploads/126126592_3020492128050804_1703443695247337615_n.jpg', 'Offline now', 122940276),
-('Student', 118, 'gika@gmail.com', '359e712fb4290125e4e1fd9ff8e44cde', 'gika', 'male', 'uploads/images.png', 'Offline now', 1366213838),
-('Student', 119, 'student@gmail.com', '50d9482e20934ce6df0bf28941f885bc', 'student', 'male', 'uploads/images.png', 'Offline now', 482502929),
+('Adminstrator', 115, 'youssef@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'youssef', 'male', 'uploads/images.png', 'Offline now', 234920460),
+('Auditor', 116, 'speed@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'speed', 'male', 'uploads/images.png', 'Offline now', 1341090892),
+('Tutor', 117, 'salah@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'salah', 'male', 'uploads/126126592_3020492128050804_1703443695247337615_n.jpg', 'Offline now', 122940276),
+('Student', 118, 'gika@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'gika', 'male', 'uploads/images.png', 'Offline now', 1366213838),
+('Student', 119, 'student@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'student', 'male', 'uploads/images.png', 'Offline now', 482502929),
 ('Adminstrator', 120, 'YonosTarek@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Yonos Tarek', 'male', 'uploads/IMG_0939-01-01.jpeg', 'Active now', 1123279351),
 ('Tutor', 121, 'SalahOmran@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'SalahOmran', 'male', 'uploads/res.jpg', 'Active now', 1311934541),
 ('Student', 122, 'YasserMohamed@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'YasserMohamed', 'male', 'uploads/123.jpg', 'Offline now', 445752559),
 ('Adminstrator', 123, 'MohamedSalah44@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'MohamedSalah', 'male', 'uploads/res.jpg', 'Offline now', 286362056),
 ('Auditor', 124, 'ChinaManga@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'ChinaManga', 'male', 'uploads/Image2.jpg', 'Active now', 1154051781),
-('Student', 125, 'mohamedsalahomran44@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Mohamed Salah', 'male', 'uploads/res.jpg', 'Active now', 723827539),
-('Tutor', 126, 'Omarwael@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Omar wael', 'male', 'uploads/217798059_4227348867359117_6908792753169980018_n (1).jpg', 'Offline now', 595617583);
+('Tutor', 125, 'mohamedsalahomran44@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Mohamed Salah', 'male', 'uploads/res.jpg', 'Active now', 723827539),
+('Tutor', 126, 'Omarwael@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Omar wael', 'male', 'uploads/217798059_4227348867359117_6908792753169980018_n (1).jpg', 'Offline now', 595617583),
+('Tutor', 127, 'Mohamed@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Mohamed', 'male', 'uploads/jhg.jpg', 'Offline now', 834910699),
+('Tutor', 128, 'Mariam@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Mariam', 'female', 'uploads/111.jpg', 'Offline now', 1134239792),
+('Tutor', 130, 'YoussefAlaa@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'YoussefAlaa', 'male', 'uploads/Image5.jpg', 'Offline now', 356532015),
+('Tutor', 131, 'Yonosbahrawy@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Yonos bahrawy', 'male', 'uploads/5.jpg', 'Offline now', 1395589200),
+('Tutor', 132, 'YoussefHussien@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Youssef Hussien', 'male', 'uploads/Image6.jpg', 'Offline now', 1399973887),
+('Tutor', 133, 'Yasser@gmail.com', '0f7e44a922df352c05c5f73cb40ba115', 'Yasser', 'male', 'uploads/Image4.jpg', 'Offline now', 1374819763);
 
 --
 -- Indexes for dumped tables
@@ -333,7 +345,7 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `userid` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -43,6 +43,7 @@
 
     <div class="row">
           <?php
+          if($_SESSION['Type']=="Tutor"){
         $servername = "localhost";
         $username ="root";
         $password = "";
@@ -82,6 +83,7 @@
                  }
              
 
+             }
                         ?>
         
     </div>
