@@ -87,6 +87,15 @@ button:hover {
         $password = "";
         $DB = "webdatabase";
         $conn = mysqli_connect($servername,$username,$password,$DB);
+
+
+            $name=$_POST['Ename'];
+            $email=$_POST['Eemail'];
+            $sql= "UPDATE users SET email='$email',username='$name' WHERE userid =".$ID1;
+            $result=mysqli_query($conn,$sql);
+            if($result){ 
+            $_SESSION["email"]=$_POST['Eemail'];
+            $_SESSION["username"]=$_POST['Ename'];
 //////////////////////////////////////////////////////////////////////////
 if(!empty($_FILES['fileToUpload']['name'])){
       $errors= array();
@@ -119,22 +128,16 @@ if(!empty($_FILES['fileToUpload']['name'])){
          $errors[]='File size must be excately 2 MB';
       }
       
-      if(empty($errors)==true) {
+      if(empty($errors)==true){
       $target_dir = "uploads/";
       $target_file = $target_dir.basename($_FILES['fileToUpload']['name']);
       $tmp_name = $_FILES['fileToUpload']['tmp_name'];
       $name = basename($_FILES['fileToUpload']['name']);
       move_uploaded_file($tmp_name, "$target_dir/$name");
-            $name=$_POST['Ename'];
-            $email=$_POST['Eemail'];
+
             $_SESSION["image"] = $target_file;
-            $sql= "UPDATE users SET email='$email',username='$name',image='".$_SESSION["image"]."' WHERE userid =".$ID1;
-            $result=mysqli_query($conn,$sql);
-            if($result){
-            
-            $_SESSION["email"]=$_POST['Eemail'];
-            $_SESSION["username"]=$_POST['Ename'];
-            // $_SESSION["image"]=$target_file;
+            $sql2= "UPDATE users SET image='".$_SESSION["image"]."' WHERE userid =".$ID1;
+            $result2=mysqli_query($conn,$sql2);
             
             }
         $src=$_SESSION['image'];
