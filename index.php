@@ -18,6 +18,15 @@
 <body>
   <section class="header">
   	<?php
+	if(isset($_GET['msg3'])){
+		?>
+		<div class="text-center fixed-top" style="margin-top:30px;">  
+					  <button class="btn btn-danger" id="Db" style="width:50%;height:70px"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Something went wrong in AdminPanel </button>
+					</div>
+					
+	<script src="JS/button-fade.js"></script>
+					<?php
+	  }
   	// setcookie('counter', 0, time() + (86400 * 30));
 if (empty($_SESSION['username'])) {
     ?>
@@ -51,12 +60,17 @@ else{
         		<?php
         		if ($_SESSION['Type']=="Tutor") { ?>
         			<li><a href="tutorCourses.php">TutorCourses</a></li>
+					<li><a href="surveys-tutor.php">View Surveys</a></li>
         		<?php
         		}
-        		?>
-        		
-        		<li><a href="myCourses.php">My Courses</a></li>
-        		
+
+				if($_SESSION['Type'] == "Student") {
+					?>
+					<li><a href="myCourses.php">My Courses</a></li>
+					
+				<?php
+				}
+				?>
         		 <?php
                        
                         if($_SESSION['Type']=="Adminstrator"){
@@ -232,13 +246,12 @@ We’re a community of people who bridge our disparate experiences and identitie
 <?php 
 
 
-if (!empty($_SESSION['username'])) {
+if (!empty($_SESSION['username']) && $_SESSION['Type']!="Tutor" ) {
 
 	include_once "sideBarChat.php";
 } 
 
 ?>
-
 
 
 </body>

@@ -32,6 +32,28 @@
 
 
     <?php
+    $msg1 = '<div class="text-center fixed-top" style="margin-top:250px;">  
+    <button class="btn btn-danger" id="Db" style="width:50%;height:70px"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Something went wrong.<br> We have reported your problem to the admin.</button>
+  </div>';
+     function customError($error_level, $error_message, $error_file, $error_line) {
+  $servername = "localhost";
+  $username ="root";
+  $password = "";
+  $DB = "webdatabase";
+  
+  $conn = mysqli_connect($servername,$username,$password,$DB);
+  $err_data = "INSERT INTO `errors`(`level`, `message`, `fileLoc`, `lineNum`) VALUES ('".$error_level."','".$error_message."','".$error_file."','".$error_line."')";
+  
+  $query1=mysqli_query($conn,$err_data) or die($conn->error);
+  echo $GLOBALS['msg1'];
+ ?>
+ 
+  <?php
+  die();
+}
+
+
+set_error_handler("customError");
     if(isset($_GET['msg'])){
   ?>
   <div class="text-center fixed-top" style="margin-top:30px;">  
@@ -46,6 +68,21 @@ if(isset($_GET['msg2'])){
               </div>
               <?php
 }
+
+if(isset($_GET['msg3'])){
+    ?>
+    <div class="text-center fixed-top" style="margin-top:30px;">  
+                  <button class="btn btn-danger" id="Db" style="width:50%;height:70px"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Your request faild to go to an Adminstrator </button>
+                </div>
+                <?php
+  }
+  if(isset($_GET['msg4'])){
+    ?>
+    <div class="text-center fixed-top" style="margin-top:30px;">  
+                  <button class="btn btn-danger" id="Db" style="width:50%;height:70px"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Something went wrong</button>
+                </div>
+                <?php
+  }
     $counter=0;
 if (empty($_SESSION['username'])) {
     ?>
@@ -98,6 +135,7 @@ else{
                 <?php
                 if ($_SESSION['Type']=="Tutor") { ?>
                     <li><a href="tutorCourses.php">TutorCourses</a></li>
+                    <li><a href="surveys-tutor.php">View Surveys</a></li>
                 <?php
                 }
                 ?>
@@ -140,7 +178,7 @@ else{
                 <li><div class="cart_div">
                <button class="button-17" role="button" ><a href="cart.php"><img src="cart-icon.png" /></a></button>
                 </div></li>
-                <li><a href="php/signOut.php">signOut</a></li>
+                <li><a href="php/signOut.php">SignOut</a></li>
                  
             </ul>
 </div>
@@ -189,7 +227,8 @@ else{
            
             $sql= "SELECT * FROM course";
             $result=mysqli_query($conn,$sql);
-    
+            if(!$result)
+                trigger_error("Wrong SQL Statement");
         
             while($row=mysqli_fetch_array($result)){
                  if(!empty($_SESSION['username'])){
@@ -435,8 +474,9 @@ $conn = new mysqli("localhost" , "root" , "" , "webdatabase");
         OR coursePrice LIKE '%$input%'
         )";
 
-        $results = $conn-> query($sql) or die($conn->error);
-
+        $results = $conn-> query($sql);
+        if(!$results)
+            trigger_error("Wrong SQL Statement");
          while($row=mysqli_fetch_array($results)){
                  if(!empty($_SESSION['username'])){
                      if($_SESSION['Type'] != "Adminstrator" && $row['Approved'] == 0){

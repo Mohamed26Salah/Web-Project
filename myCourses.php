@@ -17,7 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <script src= "JS/button-fade.js"></script>
 </head>
 <body>
   <style>
@@ -43,6 +43,13 @@ if(isset($_GET['msg2'])){
   ?>
   <div class="text-center fixed-top" style="margin-top:30px;">  
                 <button class="btn btn-info" id="Db" style="width:50%;height:70px"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> File size must be excately 2 MB or less </button>
+              </div>
+              <?php
+}
+if(isset($_GET['msg3'])){
+  ?>
+  <div class="text-center fixed-top" style="margin-top:30px;">  
+                <button class="btn btn-success" id="Db" style="width:50%;height:70px"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Thank You for your feedback! </button>
               </div>
               <?php
 }
@@ -96,6 +103,7 @@ else{
                 <?php
                 if ($_SESSION['Type']=="Tutor") { ?>
                     <li><a href="tutorCourses.php">TutorCourses</a></li>
+                    <li><a href="surveys-tutor.php">View Surveys</a></li>
                 <?php
                 }
                 ?>
@@ -172,7 +180,7 @@ else{
                    }else{
                   if ($row['sent?']==1 ) {
                     ?>
-                       <a class="bellIcon" href ="myCourses.php?id=<?php echo $row['courseId']; ?>#popup5"><i class='fas fa-bell'></i></a>
+                       <a class="bellIcon" href ="survey.php?id=<?php echo $row['courseId']; ?>"><i class='fas fa-bell'></i></a>
                        <?php
                   }
                  }
@@ -216,56 +224,9 @@ else{
                   </a>
               </div>
 
-            
-   <?php 
-                 if (isset($_GET['id'])) {
-                    $id = $_GET['id'];
-                    $query1 = "select * from course where courseId=$id";
-                    $result1 = $conn->query($query1);
-                    while ($row4 = mysqli_fetch_array($result1)) {
-                ?>
 
-<div id="popup5" class="overlay">
-                        <div class="popup">
-                            <a class="close" href="#">&times;</a>
-                            <div class="content">
-                                <div>    
-                                    <form action="Php/replySrv.php" method="post" id="changing" enctype="multipart/form-data">
-
-                                      <h2>Please Fill the following Survey For (<?php echo $row4['courseName']; ?>)</h2> 
-
-                                      <br>
-                                       <input  type="hidden" name = "courseId" value= "<?php echo $row4['courseId']; ?>">
-                                       Your Name: <input type="text" name = "userName" value= "<?php echo $_SESSION['username'];  ?>" disabled="disabled"><br><br>
-                                
-                                      
-                                      Rate the instructor from 1 to 5:<br>
-                                    <input type="radio" id="e1" name="type" value="1" checked='checked'>
-                                    <label for="e1">1</label>
-                                    <input type="radio" id="e2" name="type" value="2" >
-                                    <label for="e1">2</label>
-                                    <input type="radio" id="e1" name="type" value="3">
-                                    <label for="e1">3</label>
-                                    <input type="radio" id="e2" name="type" value="4" >
-                                    <label for="e1">4</label>
-                                    <input type="radio" id="e2" name="type" value="5" >
-                                    <label for="e1">5</label><br><br>
-                                     
-                                      Suggestions:<br><textarea rows="4" cols="50" name="description" form="changing" onkeyup="lettersandnumbers(this)"></textarea><br><br>
-                                      
-                                      <input type="submit" name = "subserv" >
-
-                                    </form>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-              <?php
-          }
-      }
                
-               
+             <?php  
             }
         }
         $conn->close();

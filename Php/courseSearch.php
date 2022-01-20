@@ -1,10 +1,6 @@
 <?php 
 // $str=$_GET['order'];
-$servername = "localhost";
-$username ="root";
-$password = "";
-$DB = "webdatabase";
-$conn = mysqli_connect($servername,$username,$password,$DB);
+require_once "DBConnection.php";
 
 // echo $_REQUEST['id'];
   $query = "SELECT * FROM `usercourse` WHERE (userid LIKE '%".$_GET['id']."%'
@@ -34,37 +30,6 @@ $html .="<div class='card text-center'>
    ".$row["Date"]."
   </div>
 </div>";
-
-
-//  $html .= "<div class='row mb-3'>
-
-                    
-
-//                         <div class='col-sm-11'>
-
-//                         <div class='card'>
-
-//                         <div class='card-header'><b>".$row["username"]."</b></div>
-
-//                         <div class='card-body'>
-//                         <br />
-
-//                         ".$row["courseName"]."
-
-//                         </div>
-
-//                         <div class='card-footer text-right'>On ".$row["Date"]."</div>
-//                         ".$row["Price"]."
-
-//                         </div>
-
-//                         </div>
-
-//                         </div>
-
-//                         ";
-
-// }
 
 }
   echo $html;

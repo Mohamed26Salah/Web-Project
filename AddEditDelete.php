@@ -20,6 +20,25 @@ session_start();
 <a href="courses.php" style="display: flex;  position: relative; justify-content: center; text-decoration: none;"><button class="button-17" role="button" >Back to Courses</button></a>
 <?php
  require_once "Php/DBConnection.php";
+
+ function customError2($error_level, $error_message, $error_file, $error_line) {
+  $servername = "localhost";
+  $username ="root";
+  $password = "";
+  $DB = "webdatabase";
+  
+  $conn = mysqli_connect($servername,$username,$password,$DB);
+  $err_data = "INSERT INTO `errors`(`level`, `message`, `fileLoc`, `lineNum`) VALUES ('".$error_level."','".$error_message."','".$error_file."','".$error_line."')";
+  
+  $query1=mysqli_query($conn,$err_data) or die($conn->error);
+ ?>
+  <script>window.location.replace("courses.php?msg4=error");</script>
+  <?php
+  die();
+}
+
+
+set_error_handler("customError2");
 if(isset($_GET['AE'])=="Add"){
   ?>
   <div class="login-box">
@@ -88,8 +107,10 @@ if(isset($_GET['AE'])=="Add"){
                                   <?php
 }
 else{
-  $sql= "SELECT * FROM course WHERE courseId = '".$_GET['id']."'";
+  $sql= "SELECT * FROM courses WHERE courseId = '".$_GET['id']."'";
             $result=mysqli_query($conn,$sql);
+            if(!$result)
+                trigger_error("Wrong SQL Statement");
             if($row=mysqli_fetch_array($result)){
   ?>
   <div class="login-box">
@@ -98,7 +119,7 @@ else{
                                       <h2>Edit Course</h2> 
 
                                       <div class="user-box">
-                                      <input type="text" id= "cn"name = "courseName" id="courseName" value = "<?php echo $row['courseName'];;?>"  required onkeyup="letters(this)"><br><br>
+                                      <input type="text" id= "cn"name = "courseName" id="courseName" value = "<?php echo $row['courseName'];?>"  required onkeyup="letters(this)"><br><br>
                                       <label>Course Name</label>
                                        </div>
                                     <div class="user-box">
@@ -118,13 +139,7 @@ else{
                                       <input type="file" id="file-ip-1"  name="fileToUpload" >
                                       
                                     </div>   
-                                         
-                                          
-                                          <!-- <a href="" id="save_review"> -->
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
+                          
                                         <input type="submit" name="submit" class="yasser">
                                      <!--  </a> -->
                                     
@@ -132,7 +147,7 @@ else{
                                     </form>
                                   </div>
                                   <?php
-                                  }
+           }
 }
 ?>
 

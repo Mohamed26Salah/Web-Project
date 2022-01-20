@@ -76,11 +76,10 @@ button:hover {
 
     </style>
 
-    <?php
+     <?php
    
     $ID1 = $_SESSION["userid"];
     $target_file="";
-    // $image=$_SESSION["image"];
   if (isset($_POST['Ename'])) {
      $servername = "localhost";
         $username ="root";
@@ -89,13 +88,58 @@ button:hover {
         $conn = mysqli_connect($servername,$username,$password,$DB);
 
 
-            $name=$_POST['Ename'];
-            $email=$_POST['Eemail'];
-            $sql= "UPDATE users SET email='$email',username='$name' WHERE userid =".$ID1;
-            $result=mysqli_query($conn,$sql);
-            if($result){ 
-            $_SESSION["email"]=$_POST['Eemail'];
-            $_SESSION["username"]=$_POST['Ename'];
+    if($_POST['Ename']!=$_SESSION["username"]){
+
+        $sqlh= "SELECT * FROM users WHERE username='".$_POST['Ename']."'";
+        $resulth=mysqli_query($conn,$sqlh);
+        if($row=mysqli_fetch_array($resulth)){
+          if($row['username']==$_POST['Ename']){
+          ?>
+           <div class="text-center fixed-top"  style="margin-top:30px;">  
+                <button class="btn btn-warning" id="Db" style="width:30%"><i class="fa fa-exclamation" aria-hidden="true"></i> Username is Already taken</button>
+              </div>
+          <?php
+          }
+        }else{
+
+            $_POST['Ename'] = filter_var($_POST['Ename'], FILTER_SANITIZE_STRING);    
+             $sqll= "UPDATE users SET username='".$_POST['Ename']."'WHERE userid =".$ID1;
+             $resultt=mysqli_query($conn,$sqll);
+             $_SESSION["username"]=$_POST['Ename'];
+        }
+
+    }
+
+        if($_POST['Eemail']!=$_SESSION["email"]){
+             if(!filter_var($_POST['Eemail'] , FILTER_VALIDATE_EMAIL)=== false)
+        {
+             $sqlk= "SELECT * FROM users WHERE email='".$_POST['Eemail']."'";
+             $resultt=mysqli_query($conn,$sqlk);
+             if($row=mysqli_fetch_array($resultt)){
+        
+            if($row['email']==$_POST['Eemail']){
+            ?>
+               <div class="text-center fixed-top"  style="margin-top:30px;">  
+                <button class="btn btn-warning" id="Db" style="width:30%"><i class="fa fa-exclamation" aria-hidden="true"></i> Email is Already taken</button>
+              </div>
+              <?php
+          }
+        }else{
+              $_POST['Eemail'] = filter_var($_POST['Eemail'], FILTER_SANITIZE_EMAIL); 
+              $sql= "UPDATE users SET email='".$_POST['Eemail']."'WHERE userid =".$ID1;
+              $result=mysqli_query($conn,$sql);
+              $_SESSION["email"]=$_POST['Eemail'];
+        }
+    }else{
+         ?>
+        <div class="text-center fixed-top" style="margin-top:30px;">  
+                <button class="btn btn-danger" id="Db" style="width:30%"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Email is invalid</button>
+              </div>
+              <?php
+    }
+}
+
+           
 //////////////////////////////////////////////////////////////////////////
 if(!empty($_FILES['fileToUpload']['name'])){
       $errors= array();
@@ -103,10 +147,7 @@ if(!empty($_FILES['fileToUpload']['name'])){
       $file_size = $_FILES['fileToUpload']['size'];
       $file_tmp = $_FILES['fileToUpload']['tmp_name'];
       $file_type = $_FILES['fileToUpload']['type'];
-       // $file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
-       $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
-      // $text = end(explode('.',$_FILES['fileToUpload']['name']));
-      // $file_ext=strtolower($text);
+      $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
       
       $expensions= array("jpeg","jpg","png");
       
@@ -141,9 +182,7 @@ if(!empty($_FILES['fileToUpload']['name'])){
             
             }
         $src=$_SESSION['image'];
-        }
-
-       }     
+        }    
           
     }
 
@@ -151,7 +190,6 @@ if(!empty($_FILES['fileToUpload']['name'])){
   
   ?>
 
-   
           
       <div id="speed2"></div>    
     <meta charset="UTF-8">
@@ -164,7 +202,7 @@ if(!empty($_FILES['fileToUpload']['name'])){
 <div class="All">
 <form name="f1" action="" method="post" enctype="multipart/form-data">
 <div class="container rounded mt-5 mb-5" style="background-color: #FDDBAF;">
- <!-- dont take a copy from the img name -->
+ 
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="<?php echo $_SESSION['image']?>"><span class="font-weight-bold"><?php echo  $_SESSION["username"] ?></span><span class="text-black-50"><?php echo $_SESSION["email"] ?></span><span>Select an image to upload: 
@@ -179,17 +217,18 @@ if(!empty($_FILES['fileToUpload']['name'])){
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Name</label><input type="text" name = "Ename" class="form-control"  value="<?php echo  $_SESSION["username"] ?>"></div>
+                    <div class="col-md-6"><label class="labels">Name</label><input type="text" name = "Ename" minlength="10"
+       maxlength="20" size="20" class="form-control" value="<?php echo  $_SESSION["username"] ?>" onkeyup="lettersandnumbers(this)" required></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" name = "Eemail" class="form-control" value="<?php echo $_SESSION["email"] ?>"></div>
+                    <div class="col-md-12"><label class="labels">Email ID</label><input type="email" name = "Eemail" class="form-control" value="<?php echo $_SESSION["email"] ?>"></div>
                     <div class="col-md-12"><label class="labels">Gender:</label>
                     <br><?php echo $_SESSION["gender"] ?></div>
 
                 </div>
                 <div class="mt-5 text-center"><button style="background-color: grey ;" class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
             </div>
-            <!-- background="background.jpg" -->
+            
         </div>
         <div class="col-md-4">
             <div class="p-3 py-5">
@@ -218,7 +257,8 @@ if(!empty($_FILES['fileToUpload']['name'])){
                
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Old Password</label><input type="password" name = "Epassword1" class="form-control" required></div>
-                  <div class="col-md-12"><label class="labels">New Password</label><input type="password" name = "Epassword2" class="form-control" required></div>
+                  <div class="col-md-12"><label class="labels">New Password</label><input type="password" name = "Epassword2" minlength="10"
+       maxlength="20" size="20" class="form-control" required></div>
 
                 </div>
                 <div class="mt-5 text-center"><button style="background-color: grey ;" class="btn btn-primary profile-button" type="submit">Update Password</button></div>
@@ -247,7 +287,7 @@ $password = md5($password);
             if($row=mysqli_fetch_array($result)){
                $password2=mysqli_real_escape_string($conn,$_POST['Epassword2']);
                 $password2 = md5($password2);
-                echo $password2;
+                // echo $password2;
                $sql2= "UPDATE users SET `password`='".$password2."' WHERE userid =".$ID2;
                $result2=mysqli_query($conn,$sql2) or die($conn->error);
                if($result2){
@@ -287,7 +327,10 @@ $password = md5($password);
     // $("#Db").fadeOut(3000);
   });
  });
-
+function lettersandnumbers(input){
+  var regex=/[^a-z A-Z 0-9]/gi;
+  input.value=input.value.replace(regex,"");
+}
 </script>
 
 </body>

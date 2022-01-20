@@ -52,6 +52,7 @@ else{
                 <?php
                 if ($_SESSION['Type']=="Tutor") { ?>
                     <li><a href="tutorCourses.php">TutorCourses</a></li>
+                    <li><a href="surveys-tutor.php">View Surveys</a></li>
                 <?php
                 }
                 ?>

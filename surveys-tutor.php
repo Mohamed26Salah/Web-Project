@@ -19,34 +19,20 @@ set_error_handler("customError",E_ALL);
        // echo $test1;
 
 
-if($_SESSION['Type']=="Adminstrator"){
+if($_SESSION['Type']=="Tutor"){
 
 
 ?>
 <div class="text-center fixed-top" style="width:70%; align-items:center; justify-content:center; margin-left: 15%;text-decoration: none;"> 
-  <a href="index.php"><button class="button-17" role="button">Home</button></a>
- <div class="search__container">
-    <p class="search__title">
-        Go ahead, hover over search
-        by Learner, price, date and course
-    </p>
-    <input class="search__input" type="text" placeholder="Search" id="fname" onkeyup="myFunction()">
+<a href="index.php"><button class="button-17" role="button">Home</button></a>
+            <div id="order" class="scroll"></div>
      
-
- </div>
-            <div id=order class="scroll"></div>
-
-           
 </div>
 <script type="text/javascript">
- 
- myFunction();
-  function myFunction() {
-
-  var x = document.getElementById("fname");
-  // x.value = x.value.toUpperCase();
-    let xhr2 = new XMLHttpRequest();
-       xhr2.open("GET", "php/orderSearch.php?id="+x.value, true);
+ view();
+ function view(){
+   let xhr2 = new XMLHttpRequest();
+       xhr2.open("GET", "php/view-surveys.php", true);
        xhr2.onload = ()=>{
       if(xhr2.readyState === XMLHttpRequest.DONE){
           if(xhr2.status === 200){
@@ -56,8 +42,8 @@ if($_SESSION['Type']=="Adminstrator"){
       }
     }
     xhr2.send();
-
-   }
+ }
+ 
  </script>
  <?php
    }
