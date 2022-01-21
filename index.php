@@ -3,15 +3,16 @@
 <head>
 	<?php session_start();?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Universtiy Website</title>
+	<title>Course Website</title>
 	<link rel="stylesheet" href="CSS/style.css">
 	<link rel="stylesheet" href="CSS/ay7aga.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
+
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
  
 
 </head>
@@ -21,13 +22,13 @@
 	if(isset($_GET['msg3'])){
 		?>
 		<div class="text-center fixed-top" style="margin-top:30px;">  
-					  <button class="btn btn-danger" id="Db" style="width:50%;height:70px"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Something went wrong in AdminPanel </button>
+					  <button class="btn btn-danger" id="Db" style="width:50%;height:70px"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Something went wrong </button>
 					</div>
 					
 	<script src="JS/button-fade.js"></script>
 					<?php
 	  }
-  	// setcookie('counter', 0, time() + (86400 * 30));
+  	
 if (empty($_SESSION['username'])) {
     ?>
   	<nav>

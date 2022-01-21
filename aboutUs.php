@@ -57,7 +57,15 @@ else{
                 }
                 ?>
                 
+                  <?php
+                       
+            if($_SESSION['Type']=="Student"){
+                 ?>
                 <li><a href="myCourses.php">My Courses</a></li>
+            
+              <?php
+                }
+                ?>
               
                  <?php
                        

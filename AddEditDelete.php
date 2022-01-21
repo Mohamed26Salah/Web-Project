@@ -82,7 +82,7 @@ if(isset($_GET['AE'])=="Add"){
                                            ?>
                                           </select><br><br>
                                          
-                                           <!--  <input type="text" name = "instructorName" id="instructorName" required onkeyup="letters(this)"><br><br> -->
+                                          
                                        
                                             <?php
                                        }

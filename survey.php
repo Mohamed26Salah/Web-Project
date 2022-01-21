@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-  if($_SESSION['Type']!="Adminstrator"){
+  if($_SESSION['Type']!="Student"){
    include_once "Php/ErrorHandler.php";
   set_error_handler("customError",E_WARNING);
   }

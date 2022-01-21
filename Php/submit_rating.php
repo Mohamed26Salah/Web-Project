@@ -9,11 +9,11 @@ if(isset($_POST["rating_data"]))
 
 	$data = array(
 		':user_id'        => $_SESSION['userid'],
-		':course_id'      =>  $_POST['course_id'],
-		':user_review'		=>	$_POST["user_review"],
-		':datetime'			=>	date("Y-m-d H:i:s"),
-		':user_name'		=>	$_POST["user_name"],
-		':user_rating'    =>	$_POST["rating_data"],
+		':course_id'      => $_POST['course_id'],
+		':user_review'	  => $_POST["user_review"],
+		':datetime'		  => date("Y-m-d H:i:s"),
+		':user_name'	  => $_POST["user_name"],
+		':user_rating'    => $_POST["rating_data"],
 		':user_image'     => $_SESSION['image']
 	);
     /////////////////////////////////////////////////////////////
@@ -60,9 +60,7 @@ if(isset($_POST["rating_data"]))
         echo 'You have already sumbitted a review';
     }
 	
-    
-
-	
+ 
 
 }
 

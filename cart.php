@@ -45,12 +45,12 @@ if(isset($_POST["add_to_cart"]))
     {
         foreach($cart_data as $keys => $values)
         {
+
             if($cart_data[$keys]["item_id"] == $_POST["hidden_id"])
             {
-                echo "Joex";
-                echo "it is already in the cart";
+               
                 header("location:./courses.php?failed=1");
-                //fe moshkela hna //ask samira
+                
             }
         }
     }
@@ -67,7 +67,7 @@ if(isset($_POST["add_to_cart"]))
     }
 
 
-    
+   
     $item_data = json_encode($cart_data);
     setcookie('shopping_cart', $item_data, time() + (86400 * 30));
     header("location:./courses.php?success=1");
@@ -224,9 +224,7 @@ if(isset($_GET["failed"]))
                       $sql2 = "UPDATE course set enrolledSid=enrolledSid+1 WHERE courseid ='".$values["item_id"]."'";
                       $result2=mysqli_query($conn,$sql2);
                 }
-              //moshkela hna  
-           $message1 = "Thank you for your purchase.";
-           echo "<script type='text/javascript'>alert('$message1');</script>";
+             
     
   }
   else{

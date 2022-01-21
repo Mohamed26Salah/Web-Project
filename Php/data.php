@@ -1,6 +1,7 @@
 
 
 <?php
+//image + last message
     while($row = mysqli_fetch_assoc($query)){
         $sql2 = "SELECT * FROM messages WHERE (incoming_msg_id = {$row['unique_id']}
                 OR outgoing_msg_id = {$row['unique_id']}) AND (outgoing_msg_id = {$outgoing_id} 
@@ -14,6 +15,7 @@
            }
            else {
             $result = $row2['msg'];
+            //image without upload
             if ($row2['image?']==1) {
                  $result =  substr($result, 8 , strlen($result)-1);
              }  
@@ -50,8 +52,8 @@
             $you = "";
         } 
         ($row['status'] == "Offline now") ? $offline = "offline" : $offline = "";
-        ($outgoing_id == $row['unique_id']) ? $hid_me = "hide" : $hid_me = "";
-
+        // ($outgoing_id == $row['unique_id']) ? $hid_me = "hide" : $hid_me = "";
+           //3rd kol elhgat
             if(mysqli_num_rows($query2) == 0)
                 {
                           $output .= '<a onclick="msgChat( '.$row['unique_id'].' )"  >
@@ -67,9 +69,9 @@
                 } 
 
         else if ($row2['seen']==0) {
-
+          //b3tha
             if ($outgoing_id == $row2['outgoing_msg_id']) {
-
+                  //no color
                    $output .= '<a onclick="msgChat( '.$row['unique_id'].' )"  >
                     <div id = "speedo" class="content">
                     <img   src="'. $row['image'] .'" alt="">
@@ -82,7 +84,8 @@
                 </a>';
             }
             else{
-                 
+                //mshfhaash
+                  //color blue unreaded
                   $output .= '<a onclick="msgChat( '.$row['unique_id'].' )"  >
                     <div id = "speedo" class="content">
                     <img   src="'. $row['image'] .'" alt="">
@@ -98,7 +101,7 @@
             
         }
         else{
-
+          //estlmha wa shafha
         $output .= '<a onclick="msgChat( '.$row['unique_id'].' )"  >
                     <div id = "speedo" class="content">
                     <img   src="'. $row['image'] .'" alt="">

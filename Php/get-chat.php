@@ -15,7 +15,7 @@
         if(mysqli_num_rows($query) > 0){
             while($row = mysqli_fetch_assoc($query)){
                 if($row['outgoing_msg_id'] === $outgoing_id){
-                   
+                   //auditor and there is commentat
                     if($_SESSION['Type'] == "Auditor" ) {
                         ($row['comments'] > 0) ? $comment = $row['comments']: $comment = "Comment";
                         if($row['image?'] == 1)  {
@@ -55,6 +55,7 @@
                     }
                     
                 }else{
+                    //chat incoming
                     if($_SESSION['Type'] == "Auditor" ) {
                        
                         ($row['comments'] > 0) ? $comment = $row['comments']: $comment = "Comment";

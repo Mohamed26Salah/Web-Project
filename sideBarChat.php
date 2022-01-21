@@ -82,6 +82,7 @@ function closeNav() {
 
 var auditorState = 0;
 var incoming_id;
+//gwa elchat chat wa btd5l gwa elchat 
 function msgChat(incomingid) {
   
     if(<?php echo "'".$_SESSION['Type']."'"; ?> == "Auditor" && auditorState == 0) {
@@ -238,13 +239,13 @@ function scrollToBottom(){
   }
   
 }
-
+//back icon 3adya for normal chat
 function back_icon(incomingid) {
  // console.log("out");
  if(<?php echo "'".$_SESSION['Type']."'"; ?> == "Auditor") {
    auditorState = 1;
  }
-    let xhr2 = new XMLHttpRequest();
+    let xhr2 = new XMLHttpRequest();// force see when you press on back 
     xhr2.open("GET", "Php/SeenInside.php?userid="+incomingid, true);
     xhr2.onload = ()=>{
       if(xhr2.readyState === XMLHttpRequest.DONE){
@@ -269,9 +270,9 @@ function back_icon(incomingid) {
 
   
 }
-
+//back for auditor
 function back_icon2() {
- console.log("edaas 3laaaaaak");
+ 
     
     let xhr2 = new XMLHttpRequest();
     xhr2.open("GET", "Php/changeAuditorBack.php", true);
@@ -373,7 +374,7 @@ function showPreview(event){
 
 
 </script>
-
+<!-- //Start show all users chat-->
 <script src = "JS/users-list.js"></script>
 <!-- <script src = "chat.js"></script>
  -->

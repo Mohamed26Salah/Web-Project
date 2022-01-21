@@ -287,7 +287,7 @@ $password = md5($password);
             if($row=mysqli_fetch_array($result)){
                $password2=mysqli_real_escape_string($conn,$_POST['Epassword2']);
                 $password2 = md5($password2);
-                // echo $password2;
+               
                $sql2= "UPDATE users SET `password`='".$password2."' WHERE userid =".$ID2;
                $result2=mysqli_query($conn,$sql2) or die($conn->error);
                if($result2){

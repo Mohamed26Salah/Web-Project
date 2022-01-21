@@ -21,20 +21,21 @@
  				<h2>Login</h2>
  		<form action="LR2.php" method="post">
          
-        <!-- <label for="Lname">Username</label> -->
+       
         <input type="text" class="input-box" placeholder="Username" name="Lname" required onkeyup="lettersandnumbers(this)">
 
-        <!-- <label for="Lpsw">Password</label> -->
+       
         <input type="password" class="input-box" placeholder="Password" name="Lpsw" required>
           
         <button type="submit" class="submitt-btnn mt-5 mb-5">Log In</button>
-        <!-- <input type="checkbox" name="checkbox"><span>Rememeber Me</span> -->
+       
         
         
      </form>
      <button type="button" class="btnn" onclick="openRegister()">I'm New Here</button>
  		  </div>
  			<div class="cardd-back">
+
  		<form name="f1" action="LR2.php" method="post" onsubmit="return matchpass()" enctype="multipart/form-data">
 
       <h2>Register</h2> 
@@ -87,8 +88,6 @@ if(isset($_GET['cart'])){
         $conn = mysqli_connect($servername,$username,$password,$DB);
 
         
-            // $name=$_POST['Lname'];
-            // $password=$_POST['Lpsw'];
             $name=mysqli_real_escape_string($conn,$_POST['Lname']);
             $password=mysqli_real_escape_string($conn,$_POST['Lpsw']);
             $password = md5($password);
@@ -168,8 +167,8 @@ if(isset($_GET['cart'])){
       $file_size = $_FILES['fileToUpload']['size'];
       $file_tmp = $_FILES['fileToUpload']['tmp_name'];
       $file_type = $_FILES['fileToUpload']['type'];
-      $file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
-      
+      // $file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
+      $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
       $expensions= array("jpeg","jpg","png");
       
       if(in_array($file_ext,$expensions)===false){
@@ -198,7 +197,7 @@ if(isset($_GET['cart'])){
       move_uploaded_file($tmp_name, "$target_dir/$name");
         $Data1 = filter_var($Data1, FILTER_SANITIZE_STRING);  
         $Data3 = filter_var($Data3, FILTER_SANITIZE_EMAIL);  
-           $sql= "INSERT INTO users (username, password, email,image,type,gender,unique_id) VALUES ('$Data1', '$Data2', '$Data3','$target_file','$Data5','$Data6','$ran_id')";
+        $sql= "INSERT INTO users (username, password, email,image,type,gender,unique_id) VALUES ('$Data1', '$Data2', '$Data3','$target_file','$Data5','$Data6','$ran_id')";
 
        $result4=mysqli_query($conn,$sql);
         }
@@ -278,6 +277,7 @@ Sql2($name,$password);
   
   var myTimeout = setTimeout(timeout, 5000);
   function timeout(){ $("#Db").fadeOut("slow");}; 
+
   $(document).ready(function(){
   $("button").click(function (){
     $("#Db").fadeOut("slow");

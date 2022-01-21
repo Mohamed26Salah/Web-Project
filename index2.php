@@ -11,7 +11,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/style2.css">
-    <link rel="stylesheet" href="CSS/ay7aga.css">
+    
     <link rel="stylesheet" href="CSS/card.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
     </style>
     <section class="header">
     <?php
-    setcookie('counter', 0, time() + (86400 * 30));
+    
 if (empty($_SESSION['username'])) {
     ?>
     <nav>
@@ -72,20 +72,7 @@ else{
                             <?php
                         }
 
-                        if($_SESSION['Type']=="Auditor"){
-                            ?>
-                           
-                            <?php
-                        }
-
-                        ?>
-                        <?php
-                         if($_SESSION['Type']=="Student"){
-                        ?>
-                            
-                           
-                            
-                     <?php }
+                       
                         
 
                         ?>
@@ -142,14 +129,9 @@ else{
     	<div class="card">
     		<div class="card-header">Sample Product</div>
     		<div class="card-body"> 
+
     			<div class="row" id="speed2">
                    
-    				              
-                        <!-- </p>
-    				</div> --> -->
-
-                
-                    <!-- </div> Some thing is wrong here -->
                 </div>
     				<div class="col-sm-20 text-center">
                         <?php 
@@ -301,7 +283,7 @@ $(document).ready(function(){
          // sheel eloon wa seeb elt3lm 3leeh
         for(var count = 1; count <= rating_data; count++)
         {
-            //some thing here is not mafhoom
+            
             $('#submit_star_'+count).removeClass('star-light');
             $('#submit_star_'+count).addClass('text-warning');
         }
@@ -352,7 +334,7 @@ $(document).ready(function(){
     });
 
     load_rating_data();
-    // console.log('jOEX');
+    
     function load_rating_data()
     {
        

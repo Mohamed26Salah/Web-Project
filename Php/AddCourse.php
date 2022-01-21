@@ -64,7 +64,7 @@ if(!empty($_FILES['fileToUpload']['name'])){
         $approve=$_POST['approved'];
         $CourseName=$_POST['courseName'];
 
-        $InsName=$_SESSION['username'];
+        // $InsName=$_SESSION['username'];
  
           if($_SESSION['Type']=="Adminstrator"){
            
@@ -75,7 +75,8 @@ if(!empty($_FILES['fileToUpload']['name'])){
             $instaName  =$Insta_explode[1];
          }
          else if($_SESSION['Type']=="Tutor"){
-           $InsName=$_SESSION['username'];
+           $instaID=$_SESSION['userid'];
+           $instaName=$_SESSION['username'];
          }
                                       
 
@@ -84,7 +85,7 @@ if(!empty($_FILES['fileToUpload']['name'])){
         $CoursePrice=$_POST['coursePrice'];
         $Description=$_POST['description'];
         $CourseName = filter_var($CourseName, FILTER_SANITIZE_STRING);
-        $InsName = filter_var($InsName, FILTER_SANITIZE_STRING);
+        // $InsName = filter_var($InsName, FILTER_SANITIZE_STRING);
         $Description = filter_var($Description, FILTER_SANITIZE_STRING);  
         $CoursePrice = filter_var($CoursePrice, FILTER_SANITIZE_STRING);   
         

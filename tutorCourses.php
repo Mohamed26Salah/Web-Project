@@ -2,6 +2,10 @@
 <html>
 <head>
     <?php session_start();
+     if($_SESSION['Type']!="Tutor"){
+   include_once "Php/ErrorHandler.php";
+  set_error_handler("customError",E_WARNING);
+  }
       if(!isset($_SESSION['username'])) {
         echo "<script>window.location.replace('index.php'); </script>";
       }
@@ -27,7 +31,6 @@
                 <li><a href="index.php">Home</a></li>
                 <li><a href="aboutUs.php">About Us</a></li>
                 <li><a href="courses.php">Courses</a></li>
-                <li><a href="myCourses.php">My Courses</a></li>
                 <li><a href="profile.php"><i class="fa fa-user-circle"><?php echo $_SESSION['username'];?></i></a></li>
                 <li><a href="php/signOut.php">SignOut</a></li>
             </ul>
@@ -72,7 +75,12 @@
                         <a class="bEd" style="width: auto;" id="sendsrv" onclick="send(<?php echo $row['courseId']; ?>)" >Send Survey</a>
                     </div>
                 
-                         <?php echo "(".$row['enrolledSid'].")"; ?><br>
+                         <?php 
+                if($row['enrolledSid']==""){
+                   echo "No students in this Course yet!<br>"; 
+                } else{
+                   echo "(".$row['enrolledSid'].")<br>"; 
+                }?><br>
                  <span class="price"><?php echo "$".$row['coursePrice']; ?></span><br>
 
                   <br>

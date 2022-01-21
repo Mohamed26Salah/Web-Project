@@ -11,6 +11,7 @@
 	</head>
 </html>
 <body>
+  <div id="speed2"></div>
 <?php
 include_once "Php/ErrorHandler.php";
   
@@ -37,7 +38,15 @@ if($_SESSION['Type']=="Tutor"){
       if(xhr2.readyState === XMLHttpRequest.DONE){
           if(xhr2.status === 200){
           let data2 = xhr2.response;
-            document.getElementById("order").innerHTML = data2;
+          if(data2=="error"){
+             var data="<div class='text-center fixed-top' style='margin-top:30px;'>  <button class='btn btn-danger' id='Db' style='width:30%'><i class='fa fa-exclamation-circle' aria-hidden='true'></i> Something Went wrong!</button></div>";
+             document.getElementById("speed2").innerHTML=data;
+            }else{
+               document.getElementById("order").innerHTML = data2;
+            }
+            
+          
+
          }
       }
     }

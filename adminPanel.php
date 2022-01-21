@@ -1,13 +1,13 @@
 <?php
 session_start();
+ include_once "Php/ErrorHandler.php";
+   set_error_handler("customError",E_WARNING);
+  if($_SESSION['Type']=="Adminstrator"){
+  
+  
 
-  if($_SESSION['Type']!="Adminstrator"){
-   include_once "Php/ErrorHandler.php";
-  set_error_handler("customError",E_WARNING);
-  }
 
-
-function customError($error_level, $error_message, $error_file, $error_line) {
+function customError2($error_level, $error_message, $error_file, $error_line) {
   $servername = "localhost";
   $username ="root";
   $password = "";
@@ -18,13 +18,13 @@ function customError($error_level, $error_message, $error_file, $error_line) {
   
   $query1=mysqli_query($conn,$err_data) or die($conn->error);
  ?>
-  <script>window.location.replace("index.php?msg3=error");</script>
+  <script>window.location.replace("index.php?msg3=error");</script> 
   <?php
   die();
 }
 
 
-set_error_handler("customError", E_ALL);
+set_error_handler("customError2", E_ALL);
 
 ?>
 
@@ -98,3 +98,7 @@ set_error_handler("customError", E_ALL);
 
 </html>
 
+<?php 
+
+}
+?>

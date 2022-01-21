@@ -3,8 +3,6 @@
 <head>
     <?php session_start();
       
-       
-
     ?>
     <meta charset="utf-8">
     <title>courses</title>
@@ -140,7 +138,15 @@ else{
                 }
                 ?>
                 
+                 <?php
+                       
+            if($_SESSION['Type']=="Student"){
+                 ?>
                 <li><a href="myCourses.php">My Courses</a></li>
+            
+              <?php
+                }
+                ?>
               
                  <?php
                        
@@ -157,23 +163,7 @@ else{
                         }
 
 
-                        if($_SESSION['Type']=="Auditor"){
-                            ?>
-                           
-                            <?php
-                        }
-
-                        ?>
-                        <?php
-                         if($_SESSION['Type']=="Student"){
-                        ?>
-                            
-                            
-                            
-                     <?php }
-                        
-
-                        ?>
+                       ?>
                 <li><a href="profile.php"><i class="fa fa-user-circle"><?php echo $_SESSION['username'];?></i></a></li>
                 <li><div class="cart_div">
                <button class="button-17" role="button" ><a href="cart.php"><img src="cart-icon.png" /></a></button>
@@ -203,10 +193,7 @@ else{
                         if($_SESSION['Type']=="Adminstrator" ||$_SESSION['Type']=="Tutor"){
                              ?>
                              <a href="AddEditDelete.php?AE=Add"><button class="button-17" role="button" style="width:70%; align-items:center; justify-content:center; margin-left: 15%;text-decoration: none;">Add a Course</button></a>
-                      <!--    <a href=AddEditDelete.php?AE=Add>
-                          
-                      <img src="uploads/add.png" alt="add" height="400px" width="400px">
-                     </a> -->
+                     
                       <br>
                      <?php 
                  }
@@ -297,7 +284,6 @@ else{
 
                   ?>
                   <form method="post" action="cart.php">
-                  <!-- <input type="text" name="quantity" value="1" class="form-control" /> -->
                   <input type="hidden" name="hidden_name" value="<?php echo $row["courseName"]; ?>" />
                   <input type="hidden" name="hidden_price" value="<?php echo $row["coursePrice"]; ?>" />
                   <input type="hidden" name="hidden_id" value="<?php echo $row["courseId"]; ?>" />
@@ -330,7 +316,7 @@ else{
                     for($star = 1; $star <= 5; $star++)
                       {
                           $class_name = '';
-
+                          
                           if($row3['Total'] >= $star)
                           {
                                $class_name = 'text-warning';
@@ -436,32 +422,22 @@ else{
                 
 <?php
 
- }
-////////////////////////////////////////////////////////////////////////////////////////////
+          }
 
-            }
-          /////////////////////////////////////////////////
 
-            }
+      }
+         
 
-            ?>
-             <!-- add course -->
-             <!--  <div class="Course-col"> -->
-            
-  <?php
+   }
 
-           
-       }
+                   
+}
            
        
 
 
        else{
 $conn = new mysqli("localhost" , "root" , "" , "webdatabase");
-
-
-    if($conn-> connect_error)
-      die("fatal error - cannot connect to the DB");
 
 
 
@@ -536,6 +512,8 @@ $conn = new mysqli("localhost" , "root" , "" , "webdatabase");
 
                $sql2= "SELECT * FROM usercourse WHERE courseid='".$row["courseId"]."' AND userId='".$_SESSION['userid']."'";
                $result2=mysqli_query($conn,$sql2);
+               if(!$result2)
+               trigger_error("Wrong SQL Statement");
                $row2 = mysqli_fetch_assoc($result2);
                 if(isset($row2['courseId'])&&isset($row2['userid'])){
                     echo "<h4>You already have this course</h4>";
@@ -573,6 +551,8 @@ $conn = new mysqli("localhost" , "root" , "" , "webdatabase");
 
                   $sql3= "SELECT * FROM ratings Where courseid = '".$row['courseId']."'";
                   $result3=mysqli_query($conn,$sql3);
+                  if(!$result3)
+                  trigger_error("Wrong SQL Statement");
                    if($row3=mysqli_fetch_array($result3)){
                     for($star = 1; $star <= 5; $star++)
                       {
@@ -604,6 +584,8 @@ $conn = new mysqli("localhost" , "root" , "" , "webdatabase");
                     $id = $_GET['id'];
                     $query1 = "select * from course where courseId=$id";
                     $result1 = $conn->query($query1);
+                    if(!$result1)
+                    trigger_error("Wrong SQL Statement");
                     while ($row1 = mysqli_fetch_array($result1)) {
                 ?>
 

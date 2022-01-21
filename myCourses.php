@@ -107,14 +107,23 @@ else{
                 <?php
                 }
                 ?>
-                
+                <?php
+                       
+            if($_SESSION['Type']=="Student"){
+                 ?>
                 <li><a href="myCourses.php">My Courses</a></li>
+            
+              <?php
+                }
+                ?>
+
+
                  <?php
                        
                         if($_SESSION['Type']=="Adminstrator"){
                              ?>
                             <li><a href="adminpanel.php">ADMINPANEL</a></li>
-                            <li><a id="chatIcon" class = "chatIcon" href =index.php><i class='fas fa-comment' onclick="openNav()"></i></li></a>
+                          
                         
                      <?php }
                         if($_SESSION['Type']=="Adminstrator"){
@@ -126,7 +135,7 @@ else{
 
                         if($_SESSION['Type']=="Auditor"){
                             ?>
-                             <li><a id="chatIcon" class = "chatIcon" href =index.php><i class='fas fa-comment' onclick="openNav()"></i></li></a>
+                            
                             <?php
                         }
 
@@ -134,8 +143,7 @@ else{
                         <?php
                          if($_SESSION['Type']=="Student"){
                         ?>
-                            
-                            <li><a id="chatIcon" class = "chatIcon" href =index.php><i class='fas fa-comment' onclick="openNav()"></i></li></a>
+                           
                             
                      <?php }
                         
@@ -192,7 +200,7 @@ else{
 
                   <?php echo "(".$row2['enrolledSid'].")"; ?><br>
 
-                  <!-- <?php echo $row['description'];?><br> -->
+                  
 
                  <span class="price"><?php echo "$".$row2['coursePrice']; ?></span><br>
                 <div class="star">
