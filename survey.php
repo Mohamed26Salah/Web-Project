@@ -18,7 +18,9 @@ session_start();
 </style>
 
 <link rel="stylesheet" href="CSS/AddEditDelete.css">
+
 <link rel="stylesheet" href="CSS/radio.css">
+
  
 
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -44,10 +46,12 @@ session_start();
   <div class="login-box">
  <form action="Php/replySrv.php" method="post">
 
+
                 <h2>Send Survey</h2> 
 
                 <br>
                 <input  type="hidden" name = "courseId" value= "<?php echo $row4['courseId']; ?>">
+                 <input  type="hidden" name = "instructorId" value= "<?php echo $row4['instructorId']; ?>">
 
                 <div class="user-box">
                    <h2 style="color:white;"><?php echo $row4['courseName']; ?></h2>
@@ -93,6 +97,7 @@ session_start();
               </form>
             </div>
             <?php
+
     }
  }
 ?>

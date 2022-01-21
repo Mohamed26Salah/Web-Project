@@ -192,6 +192,7 @@ else{
 
 
 
+
 <div class="fasl" style="margin-bottom:5px;">Discover New Courses</div>
 
 
@@ -261,7 +262,7 @@ else{
 
                         ?>
                         <div class="box">
-                            <a class="bEd" href=courses.php?id=<?php echo $row['courseId'];?>#popup4>Approve</a>
+                            <a class="bEd" style="width:auto;" href=courses.php?id=<?php echo $row['courseId'];?>#popup4>Approve</a>
                         </div>
                         
                      <?php
@@ -506,6 +507,7 @@ $conn = new mysqli("localhost" , "root" , "" , "webdatabase");
 
                         <?php if($row['Approved'] == 0){
 
+
                         ?>
                         <div class="box">
                             <a class="bEd" href=courses.php?id=<?php echo $row['courseId'];?>#popup4>Approve</a>
@@ -515,6 +517,7 @@ $conn = new mysqli("localhost" , "root" , "" , "webdatabase");
                     } 
                  }
              } 
+
 
      
                 if($row['enrolledSid']==""){

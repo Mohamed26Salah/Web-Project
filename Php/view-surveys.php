@@ -2,8 +2,10 @@
 // $str=$_GET['order'];
 require_once "DBConnection.php";
 
+ session_start();
 // echo $_REQUEST['id'];
-  $query = "SELECT * FROM `surveys` WHERE `instructorName` = '".$_SESSION['username']."' ORDER BY `courseName`";
+  $query = "SELECT * FROM `surveys` WHERE `instructorId` = '".$_SESSION['userid']."' ORDER BY `courseName`";
+
   
 
   

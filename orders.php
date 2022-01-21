@@ -39,7 +39,7 @@ if($_SESSION['Type']=="Adminstrator"){
            
 </div>
 <script type="text/javascript">
- 
+
  myFunction();
   function myFunction() {
 

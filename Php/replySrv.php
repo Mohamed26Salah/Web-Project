@@ -9,6 +9,7 @@
             $enjoyed=$_POST['type'];
             $Description=$_POST['description'];
             $sessid = $_SESSION['userid'];
+            $instructorId = $_POST['instructorId'];
 
           
             // $Description = filter_var($Description, FILTER_SANITIZE_STRING); 
@@ -17,8 +18,10 @@
            
              $result2=mysqli_query($conn,$sql2) ;
 
-            $sql= " INSERT INTO `surveys`(`courseid`, `courseName`, `userid`, `name`, `suggestion`, `enjoyed?`) VALUES 
-            ('$courseId', '$courseName', '$sessid','$userName' ,'$Description','$enjoyed')";
+
+            $sql= " INSERT INTO `surveys`(`courseid`, `courseName`, `userid`, `name`, `suggestion`, `enjoyed?` , `instructorId`) VALUES 
+            ('$courseId', '$courseName', '$sessid','$userName' ,'$Description','$enjoyed' , '$instructorId')";
+
            
              $result=mysqli_query($conn,$sql) ;
                 if (!$result) {
