@@ -39,7 +39,7 @@ set_error_handler("customError", E_ALL);
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
-<body background="background1.jpg" style="background-repeat: round; width: auto; height: auto;">
+<body style="background-repeat: round; width: auto; height: auto; background-color:#FDDBAF;">
 
     <nav>
         <div class="topnav">
